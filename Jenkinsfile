@@ -1,7 +1,7 @@
 node {
 
-   def registryProjet='web/'
-   def IMAGE="${registryProjet}app:3.5"
+   def registryProjet='kamegadjin/'
+   def IMAGE="${registryProjet}app-test:3.5"
 
     stage('Clone') {
           checkout scm
@@ -18,7 +18,7 @@ node {
     }
 
     stage('Push') {
-          docker.withRegistry('https://registry.ludovic.tech/', 'harbor_id') {
+          docker.withRegistry('https://hub.docker.com/', 'hub_docker_id') {
               img.push 'latest'
               img.push()
           }
